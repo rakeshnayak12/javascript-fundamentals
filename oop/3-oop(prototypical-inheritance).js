@@ -86,3 +86,68 @@ Circle.prototype.draw = function(){
 We just wrapped the prototype setting with a function so we can call the function and easily set prototype 
 */
 
+// Method Overriding
+function extend(Child, Parent){
+    Child.prototype = Object.create(Parent.prototype); // crates an object form a prototype
+    Child.prototype.constructor = Child;
+}
+
+function Shape(){}
+
+Shape.prototype.duplicate = function(){
+    console.log("duplicate");
+};
+
+function Circle(){}
+
+extend(Circle, Shape);
+// defined after it gets inherited
+Circle.prototype.duplicate = function(){
+    Shape.prototype.duplicate.call(this); // we can call the duplicate method form shape
+    console.log("duplicate circle");
+};
+/*
+We can redifine inherited methods in the child object with the same name with different implementation
+The allows differ object behave differently. In the same fashion we can implement the inherited method
+form parent object in the child object with different implementations. So redifining the parent method
+in child object is called method overriding and if the same parent method is implemented differently
+in different child objects, it's called polymorphisim
+
+In general it's not prefered to use inheritance. Composition(Mixin) is favoured over inheritance. Inheritance
+makes code complex and fragile also it's not recommended to use more than one level of inheritance
+*/
+
+// Mixins
+function mixin(target, ...sources){
+    Object.assign(target, ...sources); // adding properties and methods source objects to target object
+}
+
+const canEat = {
+    eat: function(){
+        this.hunger--;
+        console.log("Eating");
+    }
+};
+
+const canWalk = {
+    walk: function(){
+        console.log("Walking");
+    }
+};
+
+const canSwim = {
+    swim: function(){
+        console.log("Swimming");
+    }
+};
+
+function Person(){
+
+}
+mixin(Person.prototype, canEat, canWalk);
+
+function Fish(){}
+mixin(Fish, canEat, canSwim);
+
+const person = new Person();
+const goldFish = new Fish();
