@@ -92,6 +92,6 @@ console.log(str.trimStart()); // 'hello world   '
 * `strObj.valueOf()` converts string object to primitive string value.
 ```js
 let strObj = new String('hello');
-console.log(strObj, typeof strObj) // String: 'hello'] 'object'
+console.log(strObj, typeof strObj) // [String: 'hello'] 'object'
 console.log(strObj.valueOf()); // hello (primitive value of string object)
 ```
