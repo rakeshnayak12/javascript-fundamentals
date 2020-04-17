@@ -33,7 +33,7 @@ Circle.prototype.draw = function(){
 };
 /*
 The problem with the above implementation is circle base would loose constructor property under __proto__
-Befor setting we could do let c = Circle.prototype.constructor(1) but it's not possible. So we explicitly
+Before setting we could do let c = Circle.prototype.constructor(1) but it's not possible. So we explicitly
 defined like thisCircle.prototype.constructor = Circle; 
 */
 
@@ -107,13 +107,13 @@ Circle.prototype.duplicate = function(){
     console.log("duplicate circle");
 };
 /*
-We can redifine inherited methods in the child object with the same name with different implementation
+We can redefine inherited methods in the child object with the same name with different implementation
 The allows differ object behave differently. In the same fashion we can implement the inherited method
-form parent object in the child object with different implementations. So redifining the parent method
+form parent object in the child object with different implementations. So redefining the parent method
 in child object is called method overriding and if the same parent method is implemented differently
-in different child objects, it's called polymorphisim
+in different child objects, it's called polymorphism
 
-In general it's not prefered to use inheritance. Composition(Mixin) is favoured over inheritance. Inheritance
+In general it's not preferred to use inheritance. Composition(Mixin) is favoured over inheritance. Inheritance
 makes code complex and fragile also it's not recommended to use more than one level of inheritance
 */
 

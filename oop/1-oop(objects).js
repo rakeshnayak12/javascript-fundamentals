@@ -1,15 +1,15 @@
 /*
 There are 4 pillars of OOP 
-1. Encapsulation -> We can grop properties and methods in a single unit. The properties are accessible
-   with this keyword inside methods so no need of passing argumests to fuction. It caused less bug in
-   the code and readablity. Reduce complexity and increase reusability
-2. Abstraction -> We can hide hide methods and properties whih we don't want to expose to the user of
+1. Encapsulation -> We can group properties and methods in a single unit. The properties are accessible
+   with this keyword inside methods so no need of passing arguments to function. It caused less bug in
+   the code and readability. Reduce complexity and increase reusability
+2. Abstraction -> We can hide hide methods and properties which we don't want to expose to the user of
    the object. And if we change behaviour of these properties and methods, it won't impact the public 
    methods and properties. Reduce complexity and isolate impact of changes
-3. Inheritance -> We can define common properties and methods in an object(class) and let othe objects 
+3. Inheritance -> We can define common properties and methods in an object(class) and let other objects 
    inherit from the parent object(class). It helps reducing duplicating our code.
-4. Polymorphisim -> We can define property or method with same name for different object and make them
-   behave differently for different objects (avoiding complex swith case statements)
+4. Polymorphism -> We can define property or method with same name for different object and make them
+   behave differently for different objects (avoiding complex switch case statements)
 */
 
 // Object literals to defining an object
@@ -32,7 +32,7 @@ to crate another object we have to make copy of the same code and if we have bug
 we have to fix it everywhere.  
 */
 
-// Factory fuction method
+// Factory function method
 function createCircle(radius){
     return {
         radius,  // it's the same as writing radius: radius (if name of key and value are same)
@@ -62,7 +62,7 @@ let circle = new Circle(1);
 circle.draw(); // drawing circle
 console.log(circle.radius); // 1
 /*
-this keyword references the object that exitcuting the code. When an object is created with new keyword
+this keyword references the object that executing the code. When an object is created with new keyword
 new operator first creates an empty object then it sets this keyword points to the empty object and lastly it 
 returns the object from the constructor function so we don't have to explicitly return an object as we 
 did in factory function. By default this keyword points to global object in browser or node environment
@@ -70,7 +70,7 @@ did in factory function. By default this keyword points to global object in brow
 
 //Constructor property
 /*
-Every object has constructor property which gives the fuction from which the object is created.
+Every object has constructor property which gives the function from which the object is created.
 if we log out circle.constructor it will give us:- f Circle(radius){...}. When we create string with 
 string literals like "", '' or `` it calls new String() and same applies to new Number(), new Boolean()
 We can access the constructor function using obj.constructor notation
@@ -94,11 +94,11 @@ const circle = new Circle(1);
 console.log(circle.radius); // 1
 circle.draw(); // drawing circle
 
-// Value types refference types
+// Value types reference types
 /*
 number, string, boolean, symbol(es6), undefined, null are value types where as objects, functions and 
 arrays are reference types. In value type when we make a copy of it a brand new copy of the value 
-iscreated for other variable and all value type have there own copy in the memory independently but 
+is created for other variable and all value type have there own copy in the memory independently but 
 when we store a reference type the address of the object stored in the variable so when we make a copy 
 we copy the address and ultimately all variables points to the same object and any change in the 
 object reflects in all variable pointing to the object
@@ -120,7 +120,7 @@ console.log(obj.value); // 11
 
 // Adding and deleting properties to objects
 /*
-We can add property to an object even after the object is created from the constructor functon. Because
+We can add property to an object even after the object is created from the constructor function. Because
 the objects are dynamic it's become possible in js. Real world example would be add a token to the user
 object sent by the user.
 
@@ -143,7 +143,7 @@ the the property name is not a valid identifer like has special characters or sp
 let property = "center-location";
 circle[property]; // gives the value of the center location
 
-// we can delete properties from an object which we don't want to send to the user in realworld
+// we can delete properties from an object which we don't want to send to the user in real world
 delete circle.location; // can be done with: delete circle["location"]; 
 
 // Enumerating over an object
@@ -170,7 +170,7 @@ if("radius" in circle){
 // Abstraction 
 /*
 We have to hide the some inner implementation in the object from the outer user. All the properties and
-methods created by this keyword are accesible through the objec.property notation 
+methods created by this keyword are accessible through the object.property notation 
 */
 function Circle(radius){
     this.radius = radius;
@@ -187,9 +187,9 @@ function Circle(radius){
 }
 /*
 The above implementation used crating local variables inside constructor function so those variables
-get removed from the memory when the function stops exicution. These are not inside the object these are
+get removed from the memory when the function stops execution. These are not inside the object these are
 only local variables declared inside the constructor function and these variables stay alive as long as
-they are reffered inside of the methods
+they are refereed inside of the methods
 */
 
 // Getters and setters

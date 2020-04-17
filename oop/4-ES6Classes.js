@@ -1,20 +1,20 @@
 /*
 In es6 the new syntax has added to js for creating classes. This is just syntactical sugar over the 
-constructor fuction.The constructor function creates the object and contains instance properties and 
-methods and body contains protypical properties and methods.But as we knew beofore it's good to define 
+constructor function.The constructor function creates the object and contains instance properties and 
+methods and body contains prototypical properties and methods.But as we knew before it's good to define 
 properties in prototype to save memory 
 */
 
 class Circle {
-    constructor(radus) {
-        this.radius = radus; // instance properties and methods
+    constructor(radius) {
+        this.radius = radius; // instance properties and methods
         this.move = function(){
             console.log("moving");
         }
     }
 
     draw(){
-        console.log("drawing"); // protypical propertes and methods
+        console.log("drawing"); // prototypical properties and methods
     }
 }
 
@@ -24,19 +24,19 @@ circle.draw();
 
 // Hoisting 
 /*
-Js moves fuction declaration to the top so we can call the function before it gets defined in the code
+Js moves function declaration to the top so we can call the function before it gets defined in the code
 but function expressions doesn't get hoisted. But neither class declaration or class expressions get 
 hoisted. 
 */
 
 // Static methods
 class Circle {
-    constructor(radus) {
-        this.radius = radus; // instance properties and methods
+    constructor(radius) {
+        this.radius = radius; // instance properties and methods
     }
 
     draw(){
-        console.log("drawing"); // protypical propertes and methods
+        console.log("drawing"); // prototypical properties and methods
     }
 
     static parse(str){
@@ -45,11 +45,11 @@ class Circle {
     }
 }
 
-const circle = Circle.parse('{"radius: 1}'); // takes a json string
+const circle = Circle.parse('{"radius": 1}'); // takes a json string
 console.log(circle.radius); // 1
 /*
-Static methods are not availabe with the objects crated by class instead it's avalable for the whole class
-It's use for creating utility functions which are not specific to a perticular object. When we call 
+Static methods are not available with the objects crated by class instead it's available for the whole class
+It's use for creating utility functions which are not specific to a particular object. When we call 
 functions from math objects the same happens Math.cos()...etc.
 */
 
@@ -67,8 +67,8 @@ class Circle{
 }
 
 const circle = new Circle(1);
-/* if we log circle in console we would see a propery with name Symbol() and with value 1 and 
-Object.getOwnPropertyNames(circle) won't give you any prperty instead use Object.getOwnPropertySymbol()
+/* if we log circle in console we would see a property with name Symbol() and with value 1 and 
+Object.getOwnPropertyNames(circle) won't give you any property instead use Object.getOwnPropertySymbol()
 It will give you array of symbols and we can access it with it's index like an array
 */
 
@@ -81,7 +81,7 @@ class Circle{
     constructor(radius){
         _radius.set(this, radius);
         _move.set(this, () => {  // arrow functions inherit this form the containing function
-            console.log("move", this);  // functions declared by function keyword by default reffers 
+            console.log("move", this);  // functions declared by function keyword by default reefers 
         });                             // to global object
     }
 
