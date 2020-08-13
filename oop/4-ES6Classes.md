@@ -1,10 +1,8 @@
-/*
-In es6 the new syntax has added to js for creating classes. This is just syntactical sugar over the 
+* In es6 the new syntax has added to js for creating classes. This is just syntactical sugar over the 
 constructor function.The constructor function creates the object and contains instance properties and 
 methods and body contains prototypical properties and methods.But as we knew before it's good to define 
 properties in prototype to save memory 
-*/
-
+```js
 class Circle {
     constructor(radius) {
         this.radius = radius; // instance properties and methods
@@ -21,15 +19,14 @@ class Circle {
 const circle = new Circle(1);
 circle.radius;
 circle.draw();
-
-// Hoisting 
-/*
-Js moves function declaration to the top so we can call the function before it gets defined in the code
+```
+### Hoisting 
+* Js moves function declaration to the top so we can call the function before it gets defined in the code
 but function expressions doesn't get hoisted. But neither class declaration or class expressions get 
 hoisted. 
-*/
 
-// Static methods
+### Static methods
+```js
 class Circle {
     constructor(radius) {
         this.radius = radius; // instance properties and methods
@@ -47,13 +44,13 @@ class Circle {
 
 const circle = Circle.parse('{"radius": 1}'); // takes a json string
 console.log(circle.radius); // 1
-/*
-Static methods are not available with the objects crated by class instead it's available for the whole class
+```
+* Static methods are not available with the objects crated by class instead it's available for the whole class
 It's use for creating utility functions which are not specific to a particular object. When we call 
 functions from math objects the same happens Math.cos()...etc.
-*/
 
-// Private members using symbol
+### Private members using symbol
+```js
 const _radius = Symbol("radius");
 const _draw = Symbol("f draw");
 class Circle{
@@ -67,13 +64,13 @@ class Circle{
 }
 
 const circle = new Circle(1);
-/* if we log circle in console we would see a property with name Symbol() and with value 1 and 
+```
+* if we log circle in console we would see a property with name Symbol() and with value 1 and 
 Object.getOwnPropertyNames(circle) won't give you any property instead use Object.getOwnPropertySymbol()
 It will give you array of symbols and we can access it with it's index like an array
-*/
 
-// Private member using weakmaps
-
+### Private member using weakmaps
+```js
 const _radius = new WeakMap();
 const _move = new WeakMap();
 
@@ -93,3 +90,4 @@ class Circle{
 }
 
 const c = new Circle(1);
+```
