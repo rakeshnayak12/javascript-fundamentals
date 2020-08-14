@@ -22,8 +22,8 @@ circle.draw();
 ```
 ### Hoisting 
 * Js moves function declaration to the top so we can call the function before it gets defined in the code
-but function expressions doesn't get hoisted. But neither class declaration or class expressions get 
-hoisted. 
+but function expressions doesn't get hoisted. 
+* But neither class declaration or class expressions get hoisted. So we have to define the call before we use it in out code.
 
 ### Static methods
 ```js
@@ -45,9 +45,57 @@ class Circle {
 const circle = Circle.parse('{"radius": 1}'); // takes a json string
 console.log(circle.radius); // 1
 ```
-* Static methods are not available with the objects crated by class instead it's available for the whole class
+* Static methods are not available with the objects crated by class instead it's available for the whole class.
 It's use for creating utility functions which are not specific to a particular object. When we call 
-functions from math objects the same happens Math.cos()...etc.
+functions from math objects the same happens `Math.cos()` etc.
+
+### Getters and Setters
+* We can define getter and setters in ES6 class.
+```js
+class Person {
+    constructor(firstName, lastName) {
+        this._firstName = firstName;
+        this._lastName = lastName;
+    }
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    get firstName() {
+        return this._firstName;
+    }
+
+    get lastName() {
+        return this._lastName;
+    }
+
+    set firstName(firstName) {
+        this._firstName = firstName;
+    }
+
+    set lastName(lastName) {
+        this._lastName = lastName;
+    }
+}
+
+class Student extends Person {
+    constructor(firstName, lastName, age) {
+        super(firstName, lastName);
+        this.age = age;
+    }
+
+    getAge() {
+        return `My age is ${this.age}`;
+    }
+}
+
+const student = new Student('John','Smith', 15)
+student.firstName = 'William';
+console.log(student.fullName); // William Smith
+```
+* We can use getters and setters in the above mentioned way. Even though getters and setters and methods, we use them as if they are properties.
+* In the line `student.firstName = 'William';` js engine calls the `get firstName()` and pass `William` as argument under the hood.
 
 ### Private members using symbol
 ```js
@@ -90,4 +138,32 @@ class Circle{
 }
 
 const c = new Circle(1);
+```
+
+### Inheritance
+```js
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+
+    getName() {
+        return `My name is ${this.name}`;
+    }
+}
+
+class Student extends Person {
+    constructor(name, age) {
+        super(name);
+        this.age = age;
+    }
+
+    getAge() {
+        return `My age is ${this.age}`;
+    }
+}
+
+const student = new Student('John', '15')
+console.log(student.getName()); // My name is John
+console.log(student.getAge()); // My age is 15
 ```

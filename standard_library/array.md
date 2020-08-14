@@ -150,6 +150,21 @@ function findEven(number) {
 const evenArr = arr.filter(findEven);
 console.log(evenArr, arr); // [ 2, 4 ] [ 2, 3, 4, 5 ]
 ```
-* `reduce()` function takes a callback function and results a single output value. The callback function takes four arguments but first two(accumulator, currentValue) are most important.
-* Accumulator accumulates the returned value by the callback function and current value represents the current element of the array.
+* `reduce()` function takes a callback function (reducer) and initial value. The callback function takes four arguments but first two(accumulator, currentValue) are most important.
+* Accumulator gets initialized with initial value and later accumulates the returned value by the callback function. current value represents the current element of the array.
 ```js
+const arr = [4, 6, 7, 9, 12];
+const total = arr.reduce((acc, val) => {
+    return acc + val;
+} ,0);
+console.log(total); // 38
+```
+```js
+const arr = [4, 6, [7, 9], 12, [14, 17, 19]];
+function flatArr(arr) {
+    return arr.reduce((acc, val) => {
+        return acc.concat(Array.isArray(val) ? flatArr(val) : val);
+    } ,[]);
+}
+console.log(flatArr(arr)); // [4,  6,  7,  9, 12, 14, 17, 19]
+```
