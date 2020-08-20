@@ -90,7 +90,7 @@ create the object internally.
 * Functions behave like any other object and we can access inbuilt properties of function object with `.` notation.
 `.name` property gives name of the function, `.length` gives number of argument the function takes.
 * As we know every object has a constructor property so `.constructor` on any function gives `Function()`. `Function()` constructor function
-is called by js engine while creating function. There are other method named `.call()`, `.apply()` etc.
+is called by js engine while creating function. There are other method named `call()`, `apply()` etc.
 **Example**
 ```js
 const Circle = new Function("radius", `
@@ -155,7 +155,7 @@ circle.location = {x: 1}; // can done with: circle["location"] = {x: 1}
 console.log(circle.location.x); // prints 1
 console.log(circle["location"]); // prints {x: 1}
 ```
-* `[]` notation is useful when we want to calculate properties dynamically like in "for in" loop and if
+* `[]` notation is useful when we want to calculate properties dynamically like in `for in` loop and if
 the the property name is not a valid identifer like has special characters or space in it. Also we can pass variable
 to `[]` to calculate the property and it's value.
 ```js

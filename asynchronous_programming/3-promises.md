@@ -1,8 +1,7 @@
 ### Promises
-Promise is a special javascript object that represents an eventual result of an asynchronous action.
+* Promise is a special javascript object that represents an eventual result of an asynchronous action.
 Let's say we are making a request over network for some data and it may take few seconds.Now to process the data received we might pass a callback(will be invoked after data received) like we have seen before and we can end up with callback hell.  
-
-Another option is we can return a promise form the asynchronous function.A promise has two properties `PromiseStatus` and `PromiseValue`.`PromiseValue` contains the actual value and `PromiseStatus` contains status of the promise.`PromiseStatus` is of three types i.e `pending`(while processing, value is `undefined`),`fulfilled`(action completed successfully),`rejected`(action is failed).
+* Another option is we can return a promise form the asynchronous function.A promise has two properties `PromiseStatus` and `PromiseValue`.`PromiseValue` contains the actual value and `PromiseStatus` contains status of the promise.`PromiseStatus` is of three types i.e `pending`(while processing, value is `undefined`),`fulfilled`(action completed successfully),`rejected`(action is failed).
 ```js
 const promise1 = new Promise((resolve, reject) => {
 
@@ -217,7 +216,7 @@ hello
 error:  Error: some error happened
 ```
 * We can also execute promises in parallel.Let's say we are making multiple http request and waiting for all of them to complete.Now all those requests may take different amount of time to complete.So we have to wait for all of them to complete.
-* `Promise.all()` takes an array of arguments and waits for all the promises to complete.It returns array of resolved values.We can pass normal values to the array and it still will work.
+* `Promise.all()` takes an array of promises and waits for all the promises to complete.It returns array of resolved values.We can pass normal values to the array and it still will work.
 ```js
 function first() {
     return new Promise((resolve, reject) => {

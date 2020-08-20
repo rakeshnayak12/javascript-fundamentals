@@ -49,54 +49,6 @@ console.log(circle.radius); // 1
 It's use for creating utility functions which are not specific to a particular object. When we call 
 functions from math objects the same happens `Math.cos()` etc.
 
-### Getters and Setters
-* We can define getter and setters in ES6 class.
-```js
-class Person {
-    constructor(firstName, lastName) {
-        this._firstName = firstName;
-        this._lastName = lastName;
-    }
-
-    get fullName() {
-        return `${this.firstName} ${this.lastName}`;
-    }
-
-    get firstName() {
-        return this._firstName;
-    }
-
-    get lastName() {
-        return this._lastName;
-    }
-
-    set firstName(firstName) {
-        this._firstName = firstName;
-    }
-
-    set lastName(lastName) {
-        this._lastName = lastName;
-    }
-}
-
-class Student extends Person {
-    constructor(firstName, lastName, age) {
-        super(firstName, lastName);
-        this.age = age;
-    }
-
-    getAge() {
-        return `My age is ${this.age}`;
-    }
-}
-
-const student = new Student('John','Smith', 15)
-student.firstName = 'William';
-console.log(student.fullName); // William Smith
-```
-* We can use getters and setters in the above mentioned way. Even though getters and setters and methods, we use them as if they are properties.
-* In the line `student.firstName = 'William';` js engine calls the `get firstName()` and pass `William` as argument under the hood.
-
 ### Private members using symbol
 ```js
 const _radius = Symbol("radius");
@@ -167,3 +119,51 @@ const student = new Student('John', '15')
 console.log(student.getName()); // My name is John
 console.log(student.getAge()); // My age is 15
 ```
+
+### Getters and Setters
+* We can define getter and setters in ES6 class.
+```js
+class Person {
+    constructor(firstName, lastName) {
+        this._firstName = firstName;
+        this._lastName = lastName;
+    }
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    get firstName() {
+        return this._firstName;
+    }
+
+    get lastName() {
+        return this._lastName;
+    }
+
+    set firstName(firstName) {
+        this._firstName = firstName;
+    }
+
+    set lastName(lastName) {
+        this._lastName = lastName;
+    }
+}
+
+class Student extends Person {
+    constructor(firstName, lastName, age) {
+        super(firstName, lastName);
+        this.age = age;
+    }
+
+    getAge() {
+        return `My age is ${this.age}`;
+    }
+}
+
+const student = new Student('John','Smith', 15)
+student.firstName = 'William';
+console.log(student.fullName); // William Smith
+```
+* We can use getters and setters in the above mentioned way. Even though getters and setters and methods, we use them as if they are properties.
+* In the line `student.firstName = 'William';` js engine calls the `get firstName()` and pass `William` as argument under the hood.

@@ -1,7 +1,6 @@
 ### Callback Function
-Callback function is any function which passed as an argument to another function.Later the callback function which passed as argument is invoked inside the function  
-
-In javascript functions are first class citizens i.e they are objects.They can be used as any other objects like passed as arguments, stored in a variable, and can be returned from a function.
+* Callback function is any function which passed as an argument to another function.Later the callback function which passed as argument is invoked inside the function.
+* In javascript functions are first class citizens i.e they are objects.They can be used as any other objects like passed as arguments, stored in a variable, and can be returned from a function.
 ```js
 let array = [1, 2, 3, 4];
 let squareArr = [];
