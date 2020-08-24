@@ -20,6 +20,9 @@ const circle = {
     },
     draw: function(){
         console.log("Drawing circle");
+    },
+    getRadius() { // short hand to define function
+        return this.radius;
     }
 };
 
